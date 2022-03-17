@@ -1,0 +1,40 @@
+﻿@model InventoryMS.Models.Product
+
+@{
+    ViewBag.Title = "DeleteProduct";
+}
+
+<h2>Изтрий продукт</h2>
+
+<h3>Наистина ли искате да изтриете продукта?</h3>
+<div>
+    <h4>Продукт</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Име на продукт")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Количество")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_qnty)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Изтрий" class="btn btn-danger" /> 
+            @Html.ActionLink("Обратно", "DisplayProduct", "Product", new { @class="btn btn-primary"})
+        </div>
+    }
+</div>

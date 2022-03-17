@@ -1,0 +1,41 @@
+﻿@model IEnumerable<InventoryMS.Models.Product>
+
+@{
+    ViewBag.Title = "DisplayProduct";
+}
+
+<h2>Всички продукти</h2>
+
+<p>
+    @Html.ActionLink("Добави НОВ", "CreateProduct","Product", new {}, new {@class = "btn btn-primary"} )
+</p>
+<table class="table">
+    <tr class="success">
+        <th>
+            @Html.DisplayName("Име на продукт")
+        </th>
+        <th>
+            @Html.DisplayName("Количество продукти")
+        </th>
+        <th>
+            @Html.DisplayName("Действия")
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_qnty)
+        </td>
+        <td>
+            @Html.ActionLink("Редактиране", "UpdateProduct","Product", new { id=item.id }, new {@class="btn btn-primary"})
+            @Html.ActionLink("Информация", "ProductDetail","Product", new {id=item.id}, new {@class = "btn btn-success" })
+            @Html.ActionLink("Изтриване", "DeleteProduct","Product", new {id=item.id}, new {@class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

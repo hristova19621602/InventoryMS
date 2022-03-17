@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "31e7d82e-76bb-4a2d-a3fb-6d5371dfdbd1": {
+      "ProjectGuid": "31e7d82e-76bb-4a2d-a3fb-6d5371dfdbd1",
+      "DisplayName": "InventoryMS",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "4843b2c6-a1a5-41e4-8b99-793030c914a7": {
+      "ProjectGuid": "4843b2c6-a1a5-41e4-8b99-793030c914a7",
+      "DisplayName": "InventoryMS.Tests",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

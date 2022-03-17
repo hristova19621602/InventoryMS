@@ -1,0 +1,34 @@
+﻿@model InventoryMS.Models.Product
+
+@{
+    ViewBag.Title = "ProductDetail";
+}
+
+<h2>Информация за продуктите</h2>
+
+<div>
+    <h4>Продукт</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Име на продукт")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Количество")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_qnty)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактирай", "UpdateProduct", new { id = Model.id }, new {@class="btn btn-primary"} ) |
+    @Html.ActionLink("Обратно", "DisplayProduct","Product", new {@class="btn btn-danger"})
+</p>
