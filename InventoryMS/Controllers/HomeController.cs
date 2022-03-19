@@ -9,7 +9,8 @@ namespace InventoryMS.Controllers
 {
     public class HomeController : Controller
     {
-        
+        private object u_roleID;
+
         public ActionResult Index()
         {
             return View();
@@ -21,14 +22,26 @@ namespace InventoryMS.Controllers
         public ActionResult Index(User u)
         {
             InventoryDBEntities2 obj = new InventoryDBEntities2();
-            var data = obj.st_getLoginDetails(u.u_username, u.u_password);
+            var data = obj.st_getLoginDetails(u.u_username, u.u_password, u.u_roleID);
             foreach (var item in data)
             
             {
-                if (item.Username == u.u_username && item.Password == u.u_password)
+                if (u.u_status == 0)
                 {
-                    Session["name"] = u.u_username;
-                    return RedirectToAction("Contact");
+                    if (item.Username == u.u_username && item.Password == u.u_password)
+                    {
+                        Session["name"] = u.u_username;
+                        return RedirectToAction("Contact");
+                    }
+                    else { }
+                }
+                else if (u.u_status == 1){
+                    if (item.Username == u.u_username && item.Password == u.u_password)
+                    {
+                        Session["name"] = u.u_username;
+                        return RedirectToAction("ContactUser");
+                    }
+                    else { }
                 }
                 else { }
             }
@@ -47,16 +60,16 @@ namespace InventoryMS.Controllers
 
         public ActionResult Contact()
         {
-            if (Session["name"] == null)
-            {
-                return RedirectToAction("Index", "Home");
+            ViewBag.Message = "Your application description page.";
 
-            }
-            else
-            {
+            return View();
+        }
 
-                return View();
-            }
+        public ActionResult ContactUser()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
         }
 
         public ActionResult Logout()

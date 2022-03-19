@@ -31,6 +31,7 @@
 
     <div class="container">
         <h4><strong>Складова програма 2022</strong></h4>
+       
         <hr />
         <h5>Вход</h5>
         <hr />
@@ -52,22 +53,29 @@
                 @Html.ValidationMessageFor(model => model.u_password, "", new { @class = "text-danger" })
             </div>
         </div>
-        <hr/>
+        <br>
 
-        <div class="row offset-md-3">
+        @*<div class="row offset-md-3">
             <div class="form-group col-lg-7">
                 <input type="submit" value="Влез" class="btn btn-success btn-block" />
             </div>
+        </div>*@
+        <div>
+            @Html.ActionLink("Вход", "ContactUser", "ContactUser", new { @class = "btn btn-primary" })
         </div>
 
 
 
-        
+
 
         <hr />
 
         <footer>
             <p>&copy; @DateTime.Now.Year Складова програма </p>
+            <div>
+                @Html.ActionLink("Вход за администратори", "Contact")
+            </div>
+
         </footer>
     </div>
     }

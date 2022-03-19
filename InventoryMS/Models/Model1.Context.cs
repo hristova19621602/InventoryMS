@@ -34,7 +34,7 @@ namespace InventoryMS.Models
         public virtual DbSet<Sale> Sales { get; set; }
         public virtual DbSet<User> Users { get; set; }
     
-        public virtual ObjectResult<st_getLoginDetails_Result> st_getLoginDetails(string user, string pass)
+        public virtual ObjectResult<st_getLoginDetails_Result> st_getLoginDetails(string user, string pass, byte u_roleID)
         {
             var userParameter = user != null ?
                 new ObjectParameter("user", user) :

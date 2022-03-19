@@ -15,5 +15,6 @@ namespace InventoryMS.Models
     {
         public string Username { get; set; }
         public string Password { get; set; }
+        public object Role { get; internal set; }
     }
 }
